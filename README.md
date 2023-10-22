@@ -2,8 +2,8 @@
 
 A web application for tracking personal finances, managing expenses, incomes, and budgets.
 
-![Uploading PersonalFinanceTracker.drawio.png…]()
-
+[![Uploading PersonalFinanceTracker.drawio.png…]()
+](https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/PersonalFinanceTracker.drawio.png)
 ## Table of Contents
 
 - [Features](#features)
