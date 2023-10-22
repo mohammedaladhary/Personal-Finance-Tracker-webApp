@@ -2,7 +2,7 @@
 
 A web application for tracking personal finances, managing expenses, incomes, and budgets.
 
-[Include a brief and catchy project description or tagline.]
+![Uploading PersonalFinanceTracker.drawio.png…]()
 
 ## Table of Contents
 
@@ -80,10 +80,6 @@ We welcome contributions! If you'd like to contribute to this project, please fo
 
 5. Open a pull request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Acknowledgments
 
 - [Author Name](https://github.com/yourusername)
@@ -93,11 +89,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - [![Build Status](https://travis-ci.org/yourusername/finance-tracker.svg?branch=master)](https://travis-ci.org/yourusername/finance-tracker)
 - [![Code Quality](https://www.example.com/code-quality-badge)](https://www.example.com/link-to-code-quality-report)
-
-## Contact
-
-- Email: your.email@example.com
-- Twitter: [@yourusername](https://twitter.com/yourusername)
 
 ## Support
 
