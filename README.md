@@ -109,9 +109,3 @@ A: Yes, you can set monthly budget limits for various expense categories.
 ### Q: How do I generate a financial report?
 
 A: You can generate a financial report from the Reports section in the application.
-
-## Changelog
-
-- [Release 1.0.0](https://github.com/yourusername/finance-tracker/releases/tag/v1.0.0) (MM/DD/YYYY) - Initial release.
-
-This template provides a starting point for your "Personal Finance Tracker" project README. Be sure to customize it with your project's specific details and keep it updated as your project evolves.
