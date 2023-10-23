@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,4 +27,57 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public String deleteUser(int userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+            return "User deleted successfully";
+        }
+        else {
+            return "User not found";
+        }
+    }
+
+    @Override
+    public String updateUser(int userId, User user) {
+        Optional<User> userFound = userRepository.findById(userId);
+        if(userFound.isPresent()){
+            //2. Update the userName
+            user.setUsername(user.getUsername());
+            //3. Save it in the Database
+            userRepository.save(user);
+            return "User Details Updated";
+        }
+        else {
+            return "User with ID: " + userId + " is not found";
+        }
+    }
+    @Override
+    public User getUserById(int userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+    public void updateUserBalance(int userId, int newBalance) {
+        // Find the user by userId
+        User user = userRepository.findByUserId(userId);
+
+        if (user == null) {
+            throw new IllegalArgumentException("User not found with userId: " + userId);
+        }
+
+        // Perform any necessary validation or additional logic here
+
+        // Update the user's balance
+        user.setBalance(newBalance);
+
+        // Save the updated User object to the database
+        userRepository.save(user);
+    }
 }
+
+//    @Override
+//    public void updateUserBalance(User user, int newBalance) {
+//        // Perform balance update logic, e.g., validate the new balance
+//        user.setBalance(newBalance); // Update the user's balance
+//        userRepository.save(user); // Save the updated user to the database
+//    }

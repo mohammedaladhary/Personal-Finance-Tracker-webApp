@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -19,13 +21,13 @@ class UserRepositoryTest {
 
     @BeforeEach
     void setup() {
-        user1 = new User(112,"John","helloworld","John@gmail.com");
+        user1 = new User("John","helloworld","John@gmail.com",211);
         userRepository.save(user1);
     }
 
     @AfterEach
     void teardown() {
-        userRepository.deleteById(11);
+        userRepository.deleteById(1);
     }
 
     @Test
@@ -35,9 +37,27 @@ class UserRepositoryTest {
     }
 
     @Test
-    public void FindByUserId(){
-        User userFromDb = userRepository.findByUserID(11);
-        assertEquals(112, user1.getUserID());
+    public void FindByUserId() {
+        User userFromDb = userRepository.findByUserId(user1.getUserId());
+        // Check if the user is found
+        assertNotNull(userFromDb);
+        // Compare the found user with the original user (user1)
+        assertEquals(user1, userFromDb);
     }
 
+    @Test
+    public void UpdateUserBalance() {
+        // Update the user's balance
+        user1.setBalance(300); // New balance value
+
+        // Save the updated User object to the database
+        userRepository.save(user1); // Save the updated User object
+
+        // Retrieve the user again to check if the balance was updated
+        User updatedUser = userRepository.findByUserId(user1.getUserId());
+
+        // Check if the balance was updated correctly
+        assertNotNull(updatedUser);
+        assertEquals(300, updatedUser.getBalance()); // Verify that the balance is now 311
+    }
 }

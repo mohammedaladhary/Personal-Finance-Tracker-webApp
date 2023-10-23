@@ -35,8 +35,8 @@ class UserServiceImplTest {
     @BeforeEach
     public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-        User user1 = new User(21, "Khalid", "khalid1122", "khalid@gmail.com");
-        User user2 = new User(31, "Ahmed", "ahmed1122", "ahmed@gmail.com");
+        User user1 = new User("Khalid", "khalid1122", "khalid@gmail.com",221);
+        User user2 = new User("Ahmed", "ahmed1122", "ahmed@gmail.com",433);
         userRepository.saveAll(List.of(user1, user2));
     }
 
@@ -59,7 +59,7 @@ class UserServiceImplTest {
     @Test
     void PostCourseTest() throws Exception{
         //create a new object to odd
-        User user = new User(41,"Said","said1122","said@gmail.com");
+        User user = new User("Said","said1122","said@gmail.com",432);
         //Convert the object to JSON
         String requestBody = mapper.writeValueAsString(user);
 
