@@ -12,7 +12,11 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Income> incomes;
-        // Private Properties
+
+    @OneToMany(mappedBy = "user")
+    private List<Expense> expenses;
+
+    // Private Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
