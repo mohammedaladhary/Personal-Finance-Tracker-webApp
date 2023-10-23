@@ -81,21 +81,6 @@ We welcome contributions! If you'd like to contribute to this project, please fo
 
 5. Open a pull request.
 
-## Acknowledgments
-
-- [Author Name](https://github.com/yourusername)
-- [Resource Name](https://www.example.com/resource)
-
-## Additional Information
-
-- [![Build Status](https://travis-ci.org/yourusername/finance-tracker.svg?branch=master)](https://travis-ci.org/yourusername/finance-tracker)
-- [![Code Quality](https://www.example.com/code-quality-badge)](https://www.example.com/link-to-code-quality-report)
-
-## Support
-
-- [Documentation](https://www.example.com/docs)
-- [Community Forum](https://www.example.com/community)
-
 ## FAQ
 
 ### Q: How do I add an expense or income?
