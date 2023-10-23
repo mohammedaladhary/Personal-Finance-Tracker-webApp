@@ -3,11 +3,15 @@ package com.sda.ironhack.Personal.Finance.Tracker.webApp.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name="tbl_user")
 public class User {
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Income> incomes;
         // Private Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
