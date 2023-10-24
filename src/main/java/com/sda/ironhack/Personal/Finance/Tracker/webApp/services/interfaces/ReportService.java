@@ -7,7 +7,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ReportService {
-    Report generateReport(User user, LocalDate startDate, LocalDate endDate);
+//    Report generateReport(User user, LocalDate startDate, LocalDate endDate);
 
     List<Report> getAllReports();
+
+    String deleteReport(int userId);
+
+    List<Report> generateReport(int userId, Report report);
 }

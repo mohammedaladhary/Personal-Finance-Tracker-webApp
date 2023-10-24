@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -38,21 +39,64 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public Report generateReport(User user, LocalDate startDate, LocalDate endDate) {
-        // Implement your logic to calculate the total income and expense for this user within the specified date range
+    public String deleteReport(int userId) {
+        if (reportRepository.existsById(userId)) {
+            reportRepository.deleteById(userId);
+            return "Report deleted successfully";
+        } else {
+            return "Report not found";
+        }
+    }
+
+    @Override
+    public List<Report> generateReport(int userId, Report report) {
+        // Find the user by userId
+        User user = userRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            // Handle the case where the user is not found, e.g., return an error message or an empty list.
+            return Collections.emptyList();
+        }
+
+        // Extract necessary information from the provided Report object
+        LocalDate startDate = report.getStartDate();
+        LocalDate endDate = report.getEndDate();
+
+        // Implement your logic to calculate total income and total expense
         double totalIncome = calculateTotalIncome(user, startDate, endDate);
         double totalExpense = calculateTotalExpense(user, startDate, endDate);
 
         // Calculate the updated balance
-        double updatedBalance = user.getBalance()+totalIncome - totalExpense;
+        double updatedBalance = user.getBalance() + totalIncome - totalExpense;
 
-        // Create a report for this user
-        Report report = new Report(startDate, endDate, totalIncome, totalExpense, updatedBalance, user);
+        // Create the report based on the provided data
+        Report generatedReport = new Report(startDate, endDate, totalIncome, totalExpense, updatedBalance, user);
 
-        // Save the generated report to the database (if needed)
+        // Save the generated report to the database
+        reportRepository.save(generatedReport);
 
-        return report;
+        // You may return the generated report, a list of reports, or a confirmation message, as needed.
+        List<Report> reports = new ArrayList<>();
+        reports.add(generatedReport);
+        return reports;
     }
+
+//    @Override
+//    public Report generateReport(User user, LocalDate startDate, LocalDate endDate) {
+//        // Implement your logic to calculate the total income and expense for this user within the specified date range
+//        double totalIncome = calculateTotalIncome(user, startDate, endDate);
+//        double totalExpense = calculateTotalExpense(user, startDate, endDate);
+//
+//        // Calculate the updated balance
+//        double updatedBalance = user.getBalance()+totalIncome - totalExpense;
+//
+//        // Create a report for this user
+//        Report report = new Report(startDate, endDate, totalIncome, totalExpense, updatedBalance, user);
+//
+//        // Save the generated report to the database (if needed)
+//
+//        return report;
+//    }
 
     public double calculateTotalIncome(User user, LocalDate startDate, LocalDate endDate) {
         List<Income> userIncomes = incomeRepository.findAllByUserAndDateBetween(user, startDate, endDate);

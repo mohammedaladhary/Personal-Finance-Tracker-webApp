@@ -4,6 +4,7 @@ import com.sda.ironhack.Personal.Finance.Tracker.webApp.entities.Income;
 import com.sda.ironhack.Personal.Finance.Tracker.webApp.entities.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IncomeService {
     List<Income> getAllIncomes();
@@ -11,4 +12,6 @@ public interface IncomeService {
     List<Income> getAllIncomesById(User userId);
 
     String addIncomeByUserId(int userId, Income amount);
+
+    String updateUserIncomeInfo(int userId, Map<String, Object> income);
 }

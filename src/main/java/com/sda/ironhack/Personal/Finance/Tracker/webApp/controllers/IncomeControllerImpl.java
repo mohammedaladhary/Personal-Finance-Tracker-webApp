@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
+//@RequestMapping("/dashboard")
 public class IncomeControllerImpl {
 
     @Autowired
@@ -29,5 +31,10 @@ public class IncomeControllerImpl {
     @PostMapping("/users/incomes/add/{userId}")
     public String addIncomeByUserId(@PathVariable int userId, @RequestBody @Valid Income income) {
         return incomeServiceImpl.addIncomeByUserId(userId,income);
+    }
+
+    @PatchMapping("/users/incomes/updateUserIncome/{userId}")
+    public String updateUserIncomeInfo(@PathVariable int userId,@RequestBody Map<String, Object> income) {
+        return incomeServiceImpl.updateUserIncomeInfo(userId, income);
     }
 }

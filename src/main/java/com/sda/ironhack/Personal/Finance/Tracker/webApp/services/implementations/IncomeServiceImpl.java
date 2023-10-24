@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -49,6 +50,39 @@ public class IncomeServiceImpl implements IncomeService {
             return "Income added successfully for User with userId: " + userId;
         } catch (Exception e) {
             return "Income not added successfully for User with userId: " + userId + " - " + e.getMessage();
+        }
+    }
+
+    @Override
+    public String updateUserIncomeInfo(int userId, Map<String, Object> incomeInfo) {
+        Optional<Income> optionalIncome = incomeRepository.findById(userId);
+
+        if (optionalIncome.isPresent()) {
+            Income income = optionalIncome.get();
+
+            if (incomeInfo != null && !incomeInfo.isEmpty()) {
+                updateIncomeAttributes(income, incomeInfo);
+                // Save the changes to the database
+                incomeRepository.save(income);
+                return "Income source updated successfully";
+            } else {
+                return "Income data is null or empty.";
+            }
+        } else {
+            return "Income not found";
+        }
+    }
+
+    private void updateIncomeAttributes(Income income, Map<String, Object> incomeInfo) {
+        for (Map.Entry<String, Object> entry : incomeInfo.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            if (key.equals("newIncomeSource")) {
+                income.setSource(value.toString());
+            } else {
+                throw new IllegalArgumentException("Invalid attribute: " + key);
+            }
         }
     }
 }

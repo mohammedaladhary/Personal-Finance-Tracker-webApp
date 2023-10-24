@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/dashboard")
 public class UserControllerImpl {
     @Autowired
     private UserServiceImpl userServiceImpl;
