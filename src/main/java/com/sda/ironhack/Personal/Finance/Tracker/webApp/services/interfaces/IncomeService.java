@@ -14,4 +14,8 @@ public interface IncomeService {
     String addIncomeByUserId(int userId, Income amount);
 
     String updateUserIncomeInfo(int userId, Map<String, Object> income);
+
+    Income getUserById(int userId);
+
+    void updateUserIncome(int userId, double newIncome);
 }

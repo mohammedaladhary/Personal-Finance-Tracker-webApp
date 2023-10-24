@@ -73,6 +73,29 @@ public class IncomeServiceImpl implements IncomeService {
         }
     }
 
+    @Override
+    public Income getUserById(int userId) {
+        return incomeRepository.findById(userId).orElse(null);
+    }
+
+    @Override
+    public void updateUserIncome(int userId, double newIncome) {
+        // Find the user by userId
+        Optional<Income> optionalIncome = incomeRepository.findById(userId);
+
+        if (optionalIncome.isPresent()) {
+            Income income = optionalIncome.get();
+
+            // Update the user's balance
+            income.setAmount(newIncome);
+
+            // Save the updated User object to the database
+            incomeRepository.save(income);
+        } else {
+            throw new IllegalArgumentException("Income not found with userId: " + userId);
+        }
+    }
+
     private void updateIncomeAttributes(Income income, Map<String, Object> incomeInfo) {
         for (Map.Entry<String, Object> entry : incomeInfo.entrySet()) {
             String key = entry.getKey();

@@ -14,8 +14,11 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
+import java.util.Optional;
 
+//import static jdk.internal.org.jline.utils.InfoCmp.Capability.user1;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -73,4 +76,43 @@ class UserServiceImplTest {
                         .andReturn();
         assertTrue(result.getResponse().getContentAsString().contains("User added successfully"));
     }
+
+//    @Test
+//    void updateUserTest() throws Exception {
+//        User userToUpdate = new User("Khalid", "updatedPassword", "updatedEmail@gmail.com", 500);
+//
+//        // Convert the updated user to JSON
+//        String requestBody = mapper.writeValueAsString(userToUpdate);
+//
+//        // MockMvc PUT request to update an existing user (user1, for example)
+//        MvcResult result = mockMvc.perform(put("/users/{userId}", user1.getUserId())
+//                        .content(requestBody)
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//
+//        assertTrue(result.getResponse().getContentAsString().contains("User updated successfully"));
+//
+//        // Verify that the user information has been updated correctly in the database
+//        Optional<User> updatedUser = userRepository.findById(user1.getUserId());
+//        assertTrue(updatedUser.isPresent());
+//        assertEquals("Khalid", updatedUser.get().getUsername());
+//        assertEquals("updatedPassword", updatedUser.get().getPassword());
+//        assertEquals("updatedEmail@gmail.com", updatedUser.get().getEmail());
+//        assertEquals(500, updatedUser.get().getBalance());
+//    }
+//
+//    @Test
+//    void deleteUserTest() throws Exception {
+//        // MockMvc DELETE request to delete an existing user (user1, for example)
+//        MvcResult result = mockMvc.perform(delete("/users/{userId}", user1.getUserId()))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//
+//        assertTrue(result.getResponse().getContentAsString().contains("User deleted successfully"));
+//
+//        // Verify that the user has been deleted from the database
+//        Optional<User> deletedUser = userRepository.findById(user1.getUserId());
+//        assertFalse(deletedUser.isPresent());
+//    }
 }

@@ -11,4 +11,6 @@ public interface IncomeRepository extends JpaRepository<Income, Integer> {
     List<Income> findAllByUser(User userId);
 
     List<Income> findAllByUserAndDateBetween(User user, LocalDate startDate, LocalDate endDate);
+
+//    User findByUserId(int userId);
 }
