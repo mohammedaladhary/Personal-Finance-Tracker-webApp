@@ -43,10 +43,10 @@ class IncomeRepositoryTest {
         incomeRepository.save(income2);
         incomeRepository.save(income3);
     }
-//    @AfterEach
-//    void tearDown(){
-//        incomeRepository.deleteAll();
-//    }
+    @AfterEach
+    void tearDown(){
+        incomeRepository.deleteAll();
+    }
 
     @Test
     public void getAllIncomes(){

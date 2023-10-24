@@ -12,14 +12,12 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "expense_id")
     private int expenseId;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     private String description;
     private double amount;
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Expense() {
     }

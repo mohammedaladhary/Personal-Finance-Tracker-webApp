@@ -55,7 +55,7 @@ public class UserControllerImpl {
     public ResponseEntity<String> updateBalanceForUser(@PathVariable int userId, @RequestBody User user) {
         try {
             // Extract the new balance from the User object provided in the request body
-            int newBalance = user.getBalance();
+            double newBalance = user.getBalance();
 
             // Find the user by userId
             user = userServiceImpl.getUserById(userId);

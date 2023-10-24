@@ -26,7 +26,7 @@ class UserRepositoryTest {
 
     @AfterEach
     void teardown() {
-        userRepository.deleteById(1);
+        userRepository.deleteById(25);
     }
 
     @Test

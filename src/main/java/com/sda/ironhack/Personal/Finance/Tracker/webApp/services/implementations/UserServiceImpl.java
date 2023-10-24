@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
-    public void updateUserBalance(int userId, int newBalance) {
+    public void updateUserBalance(int userId, double newBalance) {
         // Find the user by userId
         User user = userRepository.findByUserId(userId);
 

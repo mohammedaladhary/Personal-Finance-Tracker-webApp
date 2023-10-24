@@ -9,9 +9,6 @@ import java.util.Objects;
 @Entity
 @Table(name="tbl_income")
 public class Income {
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="income_id")
@@ -19,6 +16,9 @@ public class Income {
     private String source;
     private double amount;
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     public Income() {
     }
 

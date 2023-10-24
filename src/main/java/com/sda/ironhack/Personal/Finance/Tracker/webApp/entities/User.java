@@ -25,12 +25,12 @@ public class User {
     private String password;
     private String email;
 
-    private int balance;
+    private double balance;
 
     public User() {
     }
 
-    public User(String username, String password, String email, int balance) {
+    public User(String username, String password, String email, double balance) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -65,11 +65,11 @@ public class User {
         this.email = email;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
