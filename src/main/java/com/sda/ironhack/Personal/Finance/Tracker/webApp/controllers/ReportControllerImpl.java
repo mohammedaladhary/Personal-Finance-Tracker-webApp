@@ -12,24 +12,24 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/dashboard")
+@RequestMapping(value = "/financeTracker")
 public class ReportControllerImpl {
 
     @Autowired
     private ReportServiceImpl reportServiceImpl;
 
-    @GetMapping("/users/reports")
+    @GetMapping("/dashBoard/users/reports")
     @ResponseStatus(HttpStatus.OK)
     public List<Report> showAllReports(){
         return reportServiceImpl.getAllReports();
     }
 
-    @DeleteMapping("/users/reports/delete/{userId}")
+    @DeleteMapping("/dashBoard/users/reports/delete/{userId}")
     public String deleteReport(@PathVariable int userId){
         return reportServiceImpl.deleteReport(userId);
     }
 
-    @PostMapping("/users/reports/generateReportById/{userId}")
+    @PostMapping("/dashBoard/users/reports/generateReportById/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public List<Report> generateReports(@PathVariable int userId, @RequestBody @Valid Report report) {
         return reportServiceImpl.generateReport(userId, report);

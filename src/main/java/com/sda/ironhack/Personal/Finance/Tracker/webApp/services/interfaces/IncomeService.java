@@ -18,4 +18,6 @@ public interface IncomeService {
     Income getUserById(int userId);
 
     void updateUserIncome(int userId, double newIncome);
+
+    String deleteIncome(int userId);
 }

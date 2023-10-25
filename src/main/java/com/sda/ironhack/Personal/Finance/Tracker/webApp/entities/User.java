@@ -32,11 +32,11 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
     private int userId;
+    @Column(unique = true)
     private String username;
     private String password;
     private String email;
     private double balance;
-
     private Role role;
 
     public User() {

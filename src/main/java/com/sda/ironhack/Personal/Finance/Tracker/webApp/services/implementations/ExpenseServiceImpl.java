@@ -51,4 +51,15 @@ public class ExpenseServiceImpl implements ExpenseService {
             return null;
         }
     }
+
+    @Override
+    public String deleteExpense(int userId) {
+        if (expenseRepository.existsById(userId)) {
+            expenseRepository.deleteById(userId);
+            return "Expense deleted successfully for this user.";
+        }
+        else {
+            return "Expense not found for this user.";
+        }
+    }
 }

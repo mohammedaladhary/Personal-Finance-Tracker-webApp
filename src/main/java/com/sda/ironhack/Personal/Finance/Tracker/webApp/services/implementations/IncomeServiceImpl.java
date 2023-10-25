@@ -96,6 +96,16 @@ public class IncomeServiceImpl implements IncomeService {
         }
     }
 
+    @Override
+    public String deleteIncome(int userId) {
+        if (incomeRepository.existsById(userId)) {
+            incomeRepository.deleteById(userId);
+            return "Income deleted successfully for this user.";
+        }
+        else {
+            return "Income not found for this user.";
+        }
+    }
     private void updateIncomeAttributes(Income income, Map<String, Object> incomeInfo) {
         for (Map.Entry<String, Object> entry : incomeInfo.entrySet()) {
             String key = entry.getKey();

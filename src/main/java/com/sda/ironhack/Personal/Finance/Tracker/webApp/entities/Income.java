@@ -37,6 +37,10 @@ public class Income {
         this.user = user;
     }
 
+    public void setIncomeId(int incomeId) {
+        this.incomeId = incomeId;
+    }
+
     public int getIncomeId() {
         return incomeId;
     }

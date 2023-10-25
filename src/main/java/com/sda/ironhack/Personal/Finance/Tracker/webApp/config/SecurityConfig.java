@@ -33,7 +33,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(
                         request-> request.requestMatchers("/financeTracker/auth/**")
                                 .permitAll()
-                                .requestMatchers("/financeTracker-admin/**").hasAnyAuthority("ROLE_ADMIN")
+                                .requestMatchers("/financeTracker/admin/**").hasAnyAuthority("ROLE_ADMIN")
                                 .requestMatchers("/financeTracker/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                                 .anyRequest().authenticated())
                 .sessionManagement(manager-> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

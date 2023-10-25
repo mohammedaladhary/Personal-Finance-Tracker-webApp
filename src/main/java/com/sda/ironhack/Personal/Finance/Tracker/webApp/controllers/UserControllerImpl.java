@@ -11,23 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/dashboard")
 public class UserControllerImpl {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping("auth/welcome")
+    @GetMapping("/financeTracker/welcome")
     public String greetingUser(){
-        return "Welcome my friend...";
+        return "Welcome to my Finance Tracker Management Page...";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/financeTracker/dashBoard/users")
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUsers() {
         return userServiceImpl.getAllUsers();
     }
 
-    @PostMapping("/users/add")
+    @PostMapping("/financeTracker/dashBoard/users/add")
     public ResponseEntity<String> addUser(@RequestBody @Valid User user) {
         try {
             userServiceImpl.addUser(user);
@@ -42,17 +41,17 @@ public class UserControllerImpl {
         }
     }
 
-    @DeleteMapping("/users/delete/{userId}")
+    @DeleteMapping("/financeTracker/dashBoard/users/delete/{userId}")
     public String deleteUser(@PathVariable int userId){
         return userServiceImpl.deleteUser(userId);
     }
 
-    @PutMapping("/users/update/{userId}")
+    @PutMapping("/financeTracker-admin/dashBoard/users/update/{userId}")
     public String updateUser(@PathVariable int userId, @RequestBody User user){
         return userServiceImpl.updateUser(userId, user);
     }
 
-    @PutMapping("/users/updateBalance/{userId}")
+    @PutMapping("/financeTracker/users/updateBalance/{userId}")
     public ResponseEntity<String> updateBalanceForUser(@PathVariable int userId, @RequestBody User user) {
         try {
             // Extract the new balance from the User object provided in the request body

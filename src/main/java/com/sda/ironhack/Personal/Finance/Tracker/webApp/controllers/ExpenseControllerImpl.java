@@ -12,24 +12,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/dashboard")
 public class ExpenseControllerImpl {
 
     @Autowired
     private ExpenseServiceImpl expenseServiceImpl;
 
-    @GetMapping("/users/expenses")
+    @GetMapping("/financeTracker/dashBoard/users/expenses")
     @ResponseStatus(HttpStatus.OK)
     public List<Expense> getAllExpenses() {
         return expenseServiceImpl.getAllExpenses();
     }
 
-    @GetMapping("/users/expenses/findById/{userId}")
+    @GetMapping("/financeTracker/dashBoard/users/expenses/findById/{userId}")
     public List<Expense> getAllExpensesById(@PathVariable User userId) {
         return expenseServiceImpl.getAllExpensesById(userId);
     }
 
-    @PostMapping("/users/expenses/add/{userId}")
+    @PostMapping("/financeTracker/dashBoard/users/expenses/add/{userId}")
     public ResponseEntity<String> addExpense(@PathVariable int userId, @RequestBody @Valid Expense expense) {
         try {
             expenseServiceImpl.addExpenseByUserId(userId, expense);
@@ -42,4 +41,9 @@ public class ExpenseControllerImpl {
             String errorMessage = "Expense not added successfully" + e.getMessage();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
-    }}
+    }
+    @DeleteMapping("/financeTracker/dashBoard/users/expenses/delete/{userId}")
+    public String deleteUserExpense(@PathVariable int userId){
+        return expenseServiceImpl.deleteExpense(userId);
+    }
+}

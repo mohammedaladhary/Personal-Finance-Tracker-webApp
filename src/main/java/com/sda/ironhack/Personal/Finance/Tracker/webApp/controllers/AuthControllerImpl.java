@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/financeTracker/DashBoard")
+@RequestMapping(value = "/financeTracker/auth")
 @NoArgsConstructor
 public class AuthControllerImpl {
     @Autowired
     private AuthenticationServiceImpl authenticationService;
 
-    @PostMapping(value = "/signUp")
+    @PostMapping(value = "/dashBoard/signUp")
     public ResponseEntity<String> signUp(@RequestBody SignUpRequest signUpRequest){
         try{
             authenticationService.signUp(signUpRequest);
@@ -32,7 +32,7 @@ public class AuthControllerImpl {
         }
     }
 
-    @PostMapping(value = "/signIn")
+    @PostMapping(value = "/dashBoard/signIn")
     public ResponseEntity<JwtAuthenticationRequest> signIn(@RequestBody SignInRequest signInRequest){
         return ResponseEntity.ok(authenticationService.signIn(signInRequest));
     }
