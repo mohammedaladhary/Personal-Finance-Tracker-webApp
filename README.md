@@ -46,6 +46,10 @@ https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/Pe
    ```bash
    npm start
    ```
+## Documents
+
+1. Trello: https://trello.com/b/DTZck8dS/personal-finance-tracker-webapp
+2. PowerPoint: 
 
 ## Usage
 
@@ -81,15 +85,35 @@ We welcome contributions! If you'd like to contribute to this project, please fo
 
 5. Open a pull request.
 
+## Technologies Used
+- Java for the backend using Spring Boot.
+- HTML, CSS, and JavaScript for the frontend.
+- Spring Security for user authentication and authorization.
+- MySQL or PostgreSQL for data storage.
+- UML for system design.
+
+## Controllers and Routes structure
+- The relationships between the classes in your Personal Finance Tracker system. Here are the main relationships:
+* 		User Class:
+    * Has Many Expenses: A User can have multiple Expense records. This is a one-to-many relationship, indicating that a single user can record multiple expenses.
+    * Has Many Incomes: Similarly, a User can have multiple Income records, representing various sources of income.
+    * Generates Many Reports: Users can generate different financial reports, so there's a one-to-many relationship between User and Report.
+* 		Expense Class:
+    * Belongs to One User: An Expense record belongs to a single User, indicating a many-to-one relationship between Expense and User.
+* 		Income Class:
+    * Belongs to One User: Similarly, an Income record belongs to a single User, indicating a many-to-one relationship between Income and User.
+
+## Future Work
+
+1. Mobile Application: Consider developing a mobile app version of the Personal Finance Tracker to make it even more accessible to users on the go.
+2. Integration with Financial Institutions: Explore the integration of the Personal Finance Tracker with users' bank accounts and credit cards.
+3. Investment Tracking: Add features for tracking investments, including stocks, mutual funds, and other assets.
+
 ## FAQ
 
 ### Q: How do I add an expense or income?
 
 A: You can add an expense or income by logging in and using the respective forms in the application.
-
-### Q: Can I set a monthly budget for different categories?
-
-A: Yes, you can set monthly budget limits for various expense categories.
 
 ### Q: How do I generate a financial report?
 
