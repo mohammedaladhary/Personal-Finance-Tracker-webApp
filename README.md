@@ -3,7 +3,7 @@
 A web application for tracking personal finances, managing expenses, incomes, and budgets.
 
 ## UML Diagram of the project idea
-https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/PersonalFinanceTracker.drawio.png
+https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UML%20Diagram.pdf
 
 ## Table of Contents
 
