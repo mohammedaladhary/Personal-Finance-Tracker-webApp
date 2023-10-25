@@ -16,7 +16,7 @@ public class UserControllerImpl {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping("/welcome")
+    @GetMapping("auth/welcome")
     public String greetingUser(){
         return "Welcome my friend...";
     }

@@ -5,6 +5,9 @@ import com.sda.ironhack.Personal.Finance.Tracker.webApp.repos.UserRepository;
 import com.sda.ironhack.Personal.Finance.Tracker.webApp.services.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,6 +58,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(int userId) {
         return userRepository.findById(userId).orElse(null);
+    }
+
+    @Override
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                UserDetails userDetails = userRepository.findByUsername(username);
+                if (userDetails == null) {
+                    throw new UsernameNotFoundException("User not found");
+                }
+                return userDetails;
+            }
+        };
     }
 
     public void updateUserBalance(int userId, double newBalance) {
