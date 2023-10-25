@@ -6,11 +6,13 @@ import com.sda.ironhack.Personal.Finance.Tracker.webApp.entities.Report;
 import com.sda.ironhack.Personal.Finance.Tracker.webApp.entities.User;
 import com.sda.ironhack.Personal.Finance.Tracker.webApp.services.implementations.ReportServiceImpl;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,10 +40,10 @@ public class ReportRepositoryTest {
     private double totalExpense;
     private double updatedBalance;
 
-    @Test
+    @BeforeEach
     public void setUp() {
         // Create a user
-        user1 = new User("John", "password", "john@example.com", 0.0);
+        user1 = new User("John122", "password", "john@example.com", 0.0);
         userRepository.save(user1);
 
         LocalDate date1 = LocalDate.of(2023, 12, 11);
@@ -76,23 +78,28 @@ public class ReportRepositoryTest {
         report1 = reportRepository.save(report1);
     }
 
-    //    @AfterEach
-//    public void tearDown() {
-//        reportRepository.deleteById(2);
-//    }
-//    @Test
-//    public void getReport() {
-//        // Call the service method to generate a report
-//        Report savedReport = reportServiceImpl.generateReport(user1.getUserId(), report1);
-//
-//        // Perform assertions
-//        assertNotNull(savedReport);
-//        assertEquals(user1, savedReport.getUser());
-//        assertEquals(startDate, savedReport.getStartDate());
-//
-//        // Add more assertions as needed, e.g., totalIncome, totalExpense, updatedBalance, etc.
-//        assertEquals(totalIncome, savedReport.getTotalIncome());
-//        assertEquals(totalExpense, savedReport.getTotalExpense());
-//        assertEquals(updatedBalance, savedReport.getUpdatedBalance());
-//    }
+        @AfterEach
+    public void tearDown() {
+        reportRepository.deleteById(2);
+    }
+    @Test
+    public void getReport() {
+        // Call the service method to generate a list of reports
+        List<Report> reports = reportServiceImpl.generateReport(user1.getUserId(), report1);
+
+        // Perform assertions
+        assertNotNull(reports);
+        assertFalse(reports.isEmpty());  // Ensure the list is not empty
+
+        // Assuming you want to check the first report in the list
+        Report savedReport = reports.get(0);
+
+        // Perform assertions on the first report
+        assertNotNull(savedReport);
+        assertEquals(user1, savedReport.getUser());
+        assertEquals(startDate, savedReport.getStartDate());
+        assertEquals(totalIncome, savedReport.getTotalIncome());
+        assertEquals(totalExpense, savedReport.getTotalExpense());
+        assertEquals("651.5", savedReport.getUpdatedBalance());
+    }
 }
