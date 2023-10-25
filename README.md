@@ -50,6 +50,7 @@ https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UM
 
 1. Trello: https://trello.com/b/DTZck8dS/personal-finance-tracker-webapp
 2. PowerPoint: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/Personal%20Finance%20Tracker%20slides.pdf
+3. EndPoints: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/API%20Endpoints.pdf
 
 ## Usage
 
@@ -104,34 +105,7 @@ We welcome contributions! If you'd like to contribute to this project, please fo
     * Belongs to One User: Similarly, an Income record belongs to a single User, indicating a many-to-one relationship between Income and User.
 
 ## API EndPoints:
-- SignUp(POST)/SignIn User(POST):
-* 		localhost:8080/financeTracker/auth/dashBoard/signUp
-* 		localhost:8080/financeTracker/auth/dashBoard/signIn
-
-- AddUser(POST)/(GET)ShowAllUsers/(DEL)DeleteUser/(PUT)UpdateUser/(PUT)UpdateBalance:
-* 		localhost:8080/financeTracker/dashBoard/users/add
-* 		localhost:8080/financeTracker/dashBoard/users
-* 		localhost:8080/financeTracker/dashBoard/users9/delete/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/update/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/updateBalance/{userId}
-
-- AddIncome(POST)/(GET)ShowAllIncomes/(DEL)DeleteIncome/(PUT)UpdateIncome/(GET)findIncomeById:
-* 		localhost:8080/financeTracker/dashBoard/users/incomes/add
-* 		localhost:8080/financeTracker/dashBoard/users/incomes
-* 		localhost:8080/financeTracker/dashBoard/users/incomes/delete/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/incomes/updateIncome/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/incomes/findById/{userId}
-
-- AddExpense(POST)/(GET)ShowAllExpenses/(DEL)DeleteExpense/(GET)findExpenseById:
-* 		localhost:8080/financeTracker/dashBoard/users/expenses/add
-* 		localhost:8080/financeTracker/dashBoard/users/expenses
-* 		localhost:8080/financeTracker/dashBoard/users/expenses/delete/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/expenses/findById/{userId}
-
-- AddReport(POST)/(GET)ShowAllReports/(DEL)DeleteReport:
-* 		localhost:8080/financeTracker/dashBoard/users/reports/generateReportById/{userId}
-* 		localhost:8080/financeTracker/dashBoard/users/reports
-* 		localhost:8080/financeTracker/dashBoard/users/reports/delete/{userId}
+https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/API%20Endpoints.pdf
 
 ## Future Work
 
