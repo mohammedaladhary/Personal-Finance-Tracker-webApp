@@ -2,17 +2,6 @@
 
 A web application for tracking personal finances, managing expenses, incomes, and budgets.
 
-## UML Diagram of the project idea
-https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UML%20Diagram.pdf
-
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Features
 
 - **Expense Tracking:** Log your daily expenses, categorize them, and set descriptions.
@@ -51,6 +40,7 @@ https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UM
 1. Trello: https://trello.com/b/DTZck8dS/personal-finance-tracker-webapp
 2. PowerPoint: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/Personal%20Finance%20Tracker.pdf
 3. EndPoints: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/API%20Endpoints.pdf
+4. UML Digram: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UML%20Diagram.pdf
 
 ## Usage
 
