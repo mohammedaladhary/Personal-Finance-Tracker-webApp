@@ -49,7 +49,7 @@ https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/UM
 ## Documents
 
 1. Trello: https://trello.com/b/DTZck8dS/personal-finance-tracker-webapp
-2. PowerPoint: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/Personal%20Finance%20Tracker%20slides.pdf
+2. PowerPoint: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/Personal%20Finance%20Tracker.pdf
 3. EndPoints: https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/API%20Endpoints.pdf
 
 ## Usage
