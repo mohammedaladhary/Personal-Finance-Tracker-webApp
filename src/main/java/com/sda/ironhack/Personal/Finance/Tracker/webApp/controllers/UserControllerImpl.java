@@ -41,12 +41,12 @@ public class UserControllerImpl {
         }
     } // ignore the above method for creating new user.
 
-    @DeleteMapping("/financeTracker/dashBoard/users/delete/{userId}")
+    @DeleteMapping("/financeTracker/admin/dashBoard/users/delete/{userId}")
     public String deleteUser(@PathVariable int userId){
         return userServiceImpl.deleteUser(userId);
     }
 
-    @PutMapping("/financeTracker-admin/dashBoard/users/update/{userId}")
+    @PutMapping("/financeTracker/admin/dashBoard/users/update/{userId}")
     public String updateUser(@PathVariable int userId, @RequestBody User user){
         return userServiceImpl.updateUser(userId, user);
     }
