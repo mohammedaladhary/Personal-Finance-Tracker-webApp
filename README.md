@@ -109,9 +109,10 @@ https://github.com/mohammedaladhary/Personal-Finance-Tracker-webApp/blob/main/AP
 
 ## Future Work
 
-1. Mobile Application: Consider developing a mobile app version of the Personal Finance Tracker to make it even more accessible to users on the go.
-2. Integration with Financial Institutions: Explore the integration of the Personal Finance Tracker with users' bank accounts and credit cards.
-3. Investment Tracking: Add features for tracking investments, including stocks, mutual funds, and other assets.
+1. Implement Budget and Notification Section.
+2. Developing a mobile app version of the Personal Finance Tracker to make it even more accessible to users on the go.
+3. Explore the integration of the Personal Finance Tracker with users' bank accounts and credit cards.
+4. Add features for tracking investments, including stocks, mutual funds, and other assets.
 
 ## FAQ
 
