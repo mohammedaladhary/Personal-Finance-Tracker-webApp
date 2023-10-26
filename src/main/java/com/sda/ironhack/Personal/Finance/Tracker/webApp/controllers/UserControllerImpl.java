@@ -26,7 +26,7 @@ public class UserControllerImpl {
         return userServiceImpl.getAllUsers();
     }
 
-    @PostMapping("/financeTracker/dashBoard/users/add")
+    @PostMapping("/financeTracker/dashBoard/users/add") // ignore the below method for creating new user.
     public ResponseEntity<String> addUser(@RequestBody @Valid User user) {
         try {
             userServiceImpl.addUser(user);
@@ -39,7 +39,7 @@ public class UserControllerImpl {
             String errorMessage = "User not added successfully" + e.getMessage();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
         }
-    }
+    } // ignore the above method for creating new user.
 
     @DeleteMapping("/financeTracker/dashBoard/users/delete/{userId}")
     public String deleteUser(@PathVariable int userId){
@@ -51,7 +51,7 @@ public class UserControllerImpl {
         return userServiceImpl.updateUser(userId, user);
     }
 
-    @PutMapping("/financeTracker/users/updateBalance/{userId}")
+    @PutMapping("/financeTracker/dashBoard/users/updateBalance/{userId}")
     public ResponseEntity<String> updateBalanceForUser(@PathVariable int userId, @RequestBody User user) {
         try {
             // Extract the new balance from the User object provided in the request body

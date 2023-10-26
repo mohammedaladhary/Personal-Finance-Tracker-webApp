@@ -35,6 +35,7 @@ public class SecurityConfig {
                                 .permitAll()
                                 .requestMatchers("/financeTracker/admin/**").hasAnyAuthority("ROLE_ADMIN")
                                 .requestMatchers("/financeTracker/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                                .requestMatchers("/financeTracker/dashBoard/users").hasAnyAuthority("ROLE_ADMIN")
                                 .anyRequest().authenticated())
                 .sessionManagement(manager-> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

@@ -16,7 +16,7 @@ public class Expense {
     private double amount;
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     public Expense() {

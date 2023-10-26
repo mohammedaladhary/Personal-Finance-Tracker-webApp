@@ -12,29 +12,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/financeTracker")
 public class IncomeControllerImpl {
 
     @Autowired
     private IncomeServiceImpl incomeServiceImpl;
 
 
-    @GetMapping("/dashBoard/users/incomes")
+    @GetMapping("/financeTracker/dashBoard/users/incomes")
     @ResponseStatus(HttpStatus.OK)
     public List<Income> getAllIncomes(){
         return incomeServiceImpl.getAllIncomes();
     }
 
-    @GetMapping("/dashBoard/users/incomes/findById/{userId}")
-    public List<Income> getAllIncomesById(@PathVariable User userId){
+    @GetMapping("/financeTracker/dashBoard/users/incomes/findById/{userId}")
+    public List<Income> getAllIncomesById(@RequestParam User userId){
         return incomeServiceImpl.getAllIncomesById(userId);
     }
-    @PostMapping("/dashBoard/users/incomes/add/{userId}")
+    @PostMapping("/financeTracker/dashBoard/users/incomes/add/{userId}")
     public String addIncomeByUserId(@PathVariable int userId, @RequestBody @Valid Income income) {
         return incomeServiceImpl.addIncomeByUserId(userId,income);
     }
 
-    @PutMapping("/dashBoard/users/incomes/updateIncome/{userId}")
+    @PutMapping("/financeTracker/dashBoard/users/incomes/updateIncome/{userId}")
     public ResponseEntity<String> updateUserIncomeInfo(@PathVariable int userId, @RequestBody Income income) {
         try {
             // Extract the new amount from the User object provided in the request body

@@ -29,7 +29,7 @@ public class Report {
     private double updatedBalance;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     public Report() {

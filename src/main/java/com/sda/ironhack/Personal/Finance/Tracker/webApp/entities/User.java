@@ -30,7 +30,7 @@ public class User implements UserDetails {
     // Private Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="userId")
     private int userId;
     @Column(unique = true)
     private String username;
