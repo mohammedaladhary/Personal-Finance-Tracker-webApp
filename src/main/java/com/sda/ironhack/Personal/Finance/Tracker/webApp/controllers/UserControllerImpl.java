@@ -17,7 +17,12 @@ public class UserControllerImpl {
 
     @GetMapping("/financeTracker/auth/welcome")
     public String greetingUser(){
-        return "Welcome to my Finance Tracker Management Page...";
+        return "Welcome User to the Finance Tracker Management Page...";
+    }
+
+    @GetMapping("/financeTracker-admin/welcome")
+    public String greetingAdmin(){
+        return "Welcome Admin to the Finance Tracker Management Page...";
     }
 
     @GetMapping("/financeTracker/auth/users")

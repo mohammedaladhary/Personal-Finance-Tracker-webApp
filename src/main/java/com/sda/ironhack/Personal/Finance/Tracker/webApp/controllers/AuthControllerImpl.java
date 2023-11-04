@@ -19,7 +19,7 @@ public class AuthControllerImpl {
     @Autowired
     private AuthenticationServiceImpl authenticationService;
 
-    @PostMapping(value = "/dashBoard/signUp")
+    @PostMapping(value = "/signUp")
     public ResponseEntity<String> signUp(@RequestBody SignUpRequest signUpRequest){
         try{
             authenticationService.signUp(signUpRequest);
@@ -32,7 +32,7 @@ public class AuthControllerImpl {
         }
     }
 
-    @PostMapping(value = "/dashBoard/signIn")
+    @PostMapping(value = "/signIn")
     public ResponseEntity<JwtAuthenticationRequest> signIn(@RequestBody SignInRequest signInRequest){
         return ResponseEntity.ok(authenticationService.signIn(signInRequest));
     }

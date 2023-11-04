@@ -17,7 +17,7 @@ public class ExpenseControllerImpl {
     @Autowired
     private ExpenseServiceImpl expenseServiceImpl;
 
-    @GetMapping("/financeTracker/dashBoard/users/expenses")
+    @GetMapping("/financeTracker/auth/users/expenses")
     @ResponseStatus(HttpStatus.OK)
     public List<Expense> getAllExpenses() {
         return expenseServiceImpl.getAllExpenses();
