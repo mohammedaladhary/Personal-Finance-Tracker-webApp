@@ -15,18 +15,18 @@ public class UserControllerImpl {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping("/financeTracker/welcome")
+    @GetMapping("/financeTracker/auth/welcome")
     public String greetingUser(){
         return "Welcome to my Finance Tracker Management Page...";
     }
 
-    @GetMapping("/financeTracker/dashBoard/users")
+    @GetMapping("/financeTracker/auth/users")
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUsers() {
         return userServiceImpl.getAllUsers();
     }
 
-    @PostMapping("/financeTracker/dashBoard/users/add") // ignore the below method for creating new user.
+    @PostMapping("/financeTracker/auth/users/add") // ignore the below method for creating new user.
     public ResponseEntity<String> addUser(@RequestBody @Valid User user) {
         try {
             userServiceImpl.addUser(user);
@@ -41,12 +41,12 @@ public class UserControllerImpl {
         }
     } // ignore the above method for creating new user.
 
-    @DeleteMapping("/financeTracker/admin/dashBoard/users/delete/{userId}")
+    @DeleteMapping("/financeTracker/auth/users/delete/{userId}")
     public String deleteUser(@PathVariable int userId){
         return userServiceImpl.deleteUser(userId);
     }
 
-    @PutMapping("/financeTracker/admin/dashBoard/users/update/{userId}")
+    @PutMapping("/financeTracker/auth/users/update/{userId}")
     public String updateUser(@PathVariable int userId, @RequestBody User user){
         return userServiceImpl.updateUser(userId, user);
     }

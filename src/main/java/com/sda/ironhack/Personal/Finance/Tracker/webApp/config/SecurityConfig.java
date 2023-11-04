@@ -1,11 +1,11 @@
 package com.sda.ironhack.Personal.Finance.Tracker.webApp.config;
 
+import com.sda.ironhack.Personal.Finance.Tracker.webApp.entities.Role;
 import com.sda.ironhack.Personal.Finance.Tracker.webApp.services.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Role;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -31,17 +31,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(
-                        request-> request.requestMatchers("/financeTracker/auth/**")
-                                .permitAll()
-                                .requestMatchers("/financeTracker/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                                .requestMatchers("/financeTracker/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
-                                .requestMatchers("/financeTracker/dashBoard/users").hasAnyAuthority("ROLE_ADMIN")
+                        request-> request
+                                .requestMatchers("/financeTracker/auth/**").permitAll()
+                                .requestMatchers("/financeTracker-admin/**").hasAnyAuthority(Role.ADMIN.name())
+                                .requestMatchers("/financeTracker/**").hasAnyAuthority(Role.ADMIN.name(),Role.USER.name())
+//                                .requestMatchers("/financeTracker/dashBoard/users").hasAnyAuthority("ROLE_ADMIN")
                                 .anyRequest().authenticated())
                 .sessionManagement(manager-> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
-                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
